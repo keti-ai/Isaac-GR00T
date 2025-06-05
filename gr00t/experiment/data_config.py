@@ -237,7 +237,7 @@ class SoArm100HeadWristDataConfig(BaseDataConfig):
         )
         state_modality = ModalityConfig(
             delta_indices=self.observation_indices,
-            modality_keys=self.state_keys,EmbodimentTag
+            modality_keys=self.state_keys,
         )
         action_modality = ModalityConfig(
             delta_indices=self.action_indices,
