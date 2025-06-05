@@ -22,6 +22,9 @@ class EmbodimentTag(Enum):
     The GR1 dataset.
     """
 
+    SOARM100 = "soarm100"  #
+
+
     NEW_EMBODIMENT = "new_embodiment"
     """
     Any new embodiment for finetuning.
