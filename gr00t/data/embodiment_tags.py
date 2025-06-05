@@ -21,6 +21,7 @@ class EmbodimentTag(Enum):
     """
     The GR1 dataset.
     """
+    SOARM100 = "soarm100"  #
 
     OXE_DROID = "oxe_droid"
     """
