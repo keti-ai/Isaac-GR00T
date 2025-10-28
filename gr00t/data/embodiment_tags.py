@@ -33,6 +33,9 @@ class EmbodimentTag(Enum):
     The AgiBot Genie-1 with gripper dataset.
     """
 
+    SOARM100 = "soarm100"  #
+
+
     NEW_EMBODIMENT = "new_embodiment"
     """
     Any new embodiment for finetuning.
