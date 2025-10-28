@@ -577,7 +577,7 @@ class BimanualPandaGripperDataConfig(BaseDataConfig):
 ###########################################################################################
 
 
-class BimanualPandaHandDataConfig(BaseDataConfig):
+class BimanualPandaHandDataConfig(BimanualPandaGripperDataConfig):
     video_keys = [
         "video.right_wrist_view",
         "video.left_wrist_view",
