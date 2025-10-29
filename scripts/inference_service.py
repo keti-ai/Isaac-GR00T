@@ -63,7 +63,7 @@ class ArgsConfig:
     embodiment_tag: Literal[tuple(EMBODIMENT_TAG_MAPPING.keys())] = "oxe_droid"
     """The embodiment tag for the model."""
 
-    data_config: str = "fourier_gr1_arms_waist"
+    data_config: str = "oxe_droid"
     """
     The name of the data config to use, e.g. so100, fourier_gr1_arms_only, unitree_g1, etc.
 
@@ -193,14 +193,39 @@ def main(args: ArgsConfig):
         # - action: action.left_hand: (16, 6)
         # - action: action.right_hand: (16, 6)
         # - action: action.waist: (16, 3)
+        # obs = {
+        #     "video.ego_view": np.random.randint(0, 256, (1, 256, 256, 3), dtype=np.uint8),
+        #     "state.left_arm": np.random.rand(1, 7),
+        #     "state.right_arm": np.random.rand(1, 7),
+        #     "state.left_hand": np.random.rand(1, 6),
+        #     "state.right_hand": np.random.rand(1, 6),
+        #     "state.waist": np.random.rand(1, 3),
+        #     "annotation.human.action.task_description": ["do your thing!"],
+        # }
+        # video_keys = [
+        #     "video.exterior_image_1",
+        #     "video.exterior_image_2",
+        #     "video.wrist_image",
+        # ]
+        # state_keys = [
+        #     "state.eef_position",
+        #     "state.eef_rotation",
+        #     "state.gripper_position",
+        # ]
+        # action_keys = [
+        #     "action.eef_position_delta",
+        #     "action.eef_rotation_delta",
+        #     "action.gripper_position",
+        # ]
         obs = {
-            "video.ego_view": np.random.randint(0, 256, (1, 256, 256, 3), dtype=np.uint8),
-            "state.left_arm": np.random.rand(1, 7),
-            "state.right_arm": np.random.rand(1, 7),
-            "state.left_hand": np.random.rand(1, 6),
-            "state.right_hand": np.random.rand(1, 6),
-            "state.waist": np.random.rand(1, 3),
-            "annotation.human.action.task_description": ["do your thing!"],
+            "video.wrist_image": np.random.randint(0, 256, (1, 256, 256, 3), dtype=np.uint8),
+            "video.exterior_image_2": np.random.randint(0, 256, (1, 256, 256, 3), dtype=np.uint8),
+            "video.exterior_image_1": np.random.randint(0, 256, (1, 256, 256, 3), dtype=np.uint8),
+
+            "state.eef_position": np.random.rand(1, 3),
+            "state.eef_rotation": np.random.rand(1, 3),
+            "state.gripper_position": np.random.rand(1, 1),
+            "annotation.language.language_instruction": ["do your thing!"],
         }
 
         if args.http_server:
